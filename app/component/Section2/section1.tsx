@@ -3,7 +3,7 @@ import { ShieldCheck, Award, MapPin, MessageCircle } from 'lucide-react';
 
 const FeaturesBar = () => {
   return (
-    <div className="bg-[#F8FAFC] border border-slate-100 rounded-2xl md:p-8 lg:p-10 shadow-sm">
+    <div id="about" className="bg-[#F8FAFC] border border-slate-100 rounded-2xl md:p-8 lg:p-10 shadow-sm">
       <div className="grid grid-cols-2 lg:grid-cols-4 py-10 lg:py-0 md-pt-5 gap-6 md:gap-8">
         
         {/* Feature 1 */}

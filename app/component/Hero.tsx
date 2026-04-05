@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-auto py-[150px] min-h-[600px] overflow-hidden bg-slate-900">
+    <section className="relative w-full h-auto py-[200px] min-h-[600px] overflow-hidden bg-slate-900">
       {/* 1. Background Image with Zoom Animation */}
       <div className="absolute inset-0 z-0 animate-zoom-slow">
         <Image
-          src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/images/Need_the_exact_202604051152.jpg" // ✅ مسیر لوکال: عکس را در public/images/hero-bg.jpg قرار دهید
           alt="Modern House Painting"
           fill
           priority

@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Section3= () => {
   const projects = [
     {
-      src: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      src: '/ima51200.jpeg',
       alt: 'Modern Kitchen',
     },
     {

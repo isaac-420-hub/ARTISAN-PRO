@@ -42,18 +42,18 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '#' },
-    { name: 'Portfolio', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Services', href: '#serveice' },
+    { name: 'Portfolio', href: '#PORTFOLIO' },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   // Check if link is active based on pathname
   const isActive = (href: string) => {
     if (href === '/') {
-      return pathname === '/';
+      return pathname === '#';
     }
-    return pathname.startsWith(href) && href !== '/';
+    return pathname.startsWith(href) && href !== '#';
   };
 
   return (

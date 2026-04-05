@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 const AboutContent = () => {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+    <div  className="container mx-auto px-4 sm:px-6 lg:px-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
         {/* Left Side - Text Content */}
         <div className="order-2 lg:order-1">
@@ -92,7 +92,7 @@ const AboutContent = () => {
         >
           <div className="relative w-full aspect-[3/4] md:aspect-[3/3] rounded-3xl overflow-hidden shadow-2xl group">
             <Image
-              src="https://images.unsplash.com/photo-1654625750512-a3b1e475ac7b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="/images/Mockup Logo 1.jpg" // ✅ مسیر لوکال: عکس را در public/images/about-image.jpg قرار دهید
               alt="Professional Painter at Work"
               fill
               className="object-cover object-top transition-transform duration-700 group-hover:scale-110"

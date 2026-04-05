@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const PortfolioSection = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-20 lg:py-24">
+    <section id='PORTFOLIO' className="w-full bg-white py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* عنوان بخش */}
@@ -23,7 +23,7 @@ const PortfolioSection = () => {
           <div className="group relative overflow-hidden rounded-2xl cursor-pointer opacity-0 animate-fade-up" style={{ animationDelay: '0.3s' }}>
             <div className="relative w-full aspect-[4/3] md:aspect-[16/10]">
               <Image
-                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1000&auto=format&fit=crop"
+                src="/images/Image_in_background_202604051200.jpeg"
                 alt="Modern Kitchen"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -35,7 +35,7 @@ const PortfolioSection = () => {
           <div className="group relative overflow-hidden rounded-2xl cursor-pointer opacity-0 animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <div className="relative w-full aspect-[4/3] md:aspect-[16/10]">
               <Image
-                src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1000&auto=format&fit=crop"
+                src="/images/Image_in_background_202604051201.jpeg"
                 alt="House Exterior"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -48,7 +48,7 @@ const PortfolioSection = () => {
           <div className="group relative overflow-hidden rounded-2xl cursor-pointer opacity-0 animate-fade-up md:row-span-2 h-full" style={{ animationDelay: '0.5s' }}>
             <div className="relative w-full h-full">
               <Image
-                src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=1000&auto=format&fit=crop"
+                src="/images/Image_in_background_202604051208.jpeg"
                 alt="Industrial Warehouse"
                 fill
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
@@ -60,7 +60,7 @@ const PortfolioSection = () => {
           <div className="group relative overflow-hidden rounded-2xl cursor-pointer opacity-0 animate-fade-up" style={{ animationDelay: '0.6s' }}>
             <div className="relative w-full aspect-[4/3] md:aspect-[16/10]">
               <Image
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop"
+                src="/images/Image_background_humans_202604051214.jpeg"
                 alt="Store Front"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -72,7 +72,7 @@ const PortfolioSection = () => {
           <div className="group relative overflow-hidden rounded-2xl cursor-pointer opacity-0 animate-fade-up" style={{ animationDelay: '0.7s' }}>
             <div className="relative w-full aspect-[4/3] md:aspect-[16/10]">
               <Image
-                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop"
+                src="/images/Image_in_background_202604051215.jpeg"
                 alt="Apartment Complex"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"

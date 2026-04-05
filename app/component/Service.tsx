@@ -6,23 +6,23 @@ const ServicesSection = () => {
   const services = [
     {
       title: 'Residential Painting',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
-      href: '/services/residential',
+      image: '/images/Need_the_exact_202604051153.jpg', // ✅ لوکال
+      href: '/',
     },
     {
       title: 'Commercial Painting',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop',
-      href: '/services/commercial',
+      image: '/images/Image_in_background_202604051157.jpeg', // ✅ لوکال
+      href: '/',
     },
     {
       title: 'Industrial Painting',
-      image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=1200&auto=format&fit=crop',
-      href: '/services/industrial',
+      image: '/images/Image_in_background_202604051158.jpeg', // ✅ لوکال
+      href: '/',
     },
   ];
 
   return (
-    <section className="w-full bg-[#F8FAFC] py-16 md:py-20 lg:py-24">
+    <section id='serveice' className="w-full  bg-[#F8FAFC] py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Title */}
@@ -38,7 +38,7 @@ const ServicesSection = () => {
           >
             {/* Background Image */}
             <Image
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop"
+              src="/images/Need_the_exact_202604051153.jpg" // ✅ لوکال
               alt="Residential Painting"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
