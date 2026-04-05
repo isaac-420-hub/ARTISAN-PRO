@@ -9,15 +9,31 @@ import { Phone, Star, Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Hide/Show navbar based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar
+        setVisible(true);
+      }
+      
+      // Update scrolled state for styling
+      setIsScrolled(currentScrollY > 20);
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -25,11 +41,11 @@ const Navbar = () => {
   }, [pathname]);
 
   const navLinks = [
-    { name: 'Home', href: '' },
-    { name: 'Services', href: '' },
-    { name: 'Portfolio', href: '' },
-    { name: 'About', href: '' },
-    { name: 'Contact', href: '' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '#' },
+    { name: 'Portfolio', href: '#' },
+    { name: 'About', href: '#' },
+    { name: 'Contact', href: '#' },
   ];
 
   // Check if link is active based on pathname
@@ -37,12 +53,14 @@ const Navbar = () => {
     if (href === '/') {
       return pathname === '/';
     }
-    return pathname === href;
+    return pathname.startsWith(href) && href !== '/';
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        visible ? 'translate-y-0' : '-translate-y-full'
+      } ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
           : 'bg-white py-5'
@@ -151,7 +169,7 @@ const Navbar = () => {
               href="/contact"
               className="relative px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5"
             >
-              <span className="relative z-10">Get a Free Berms</span>
+              <span className="relative z-10">Get a Free Quote</span>
               <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left opacity-10" />
             </Link>
@@ -209,10 +227,10 @@ const Navbar = () => {
               <span>+61 494 000 555</span>
             </a>
             <Link
-              href=""
+              href="/"
               className="block w-full text-center px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors"
             >
-              Get a Free Berms
+              Get a Free Quote
             </Link>
           </div>
         </div>
