@@ -3,7 +3,7 @@ import { MapPin, Send, Phone } from 'lucide-react';
 
 // آیکون‌های شبکه‌های اجتماعی به صورت SVG
 const FacebookIcon = () => (
-  <svg   xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
@@ -40,17 +40,18 @@ const Footer = () => {
 
             {/* Map & Address Row */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* Map Image - Updated */}
+              {/* Map Image */}
               <div className="relative w-full sm:w-48 h-32 rounded-xl overflow-hidden flex-shrink-0 bg-slate-800">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7593.337621916543!2d-76.58657918591203!3d39.34385424580931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c805bb6adeb895%3A0x3035e29e2ad87f3f!2sMorgan%20State%20University!5e1!3m2!1sen!2s!4v1775380627549!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21543859.113504503!2d121.35459261404685!3d-28.066962512323258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad646b5d2ba4df7%3A0x4045675218ccd90!2sMelbourne%20VIC%2C%20Australia!5e1!3m2!1sen!2s!4v1775386314726!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale-[20%]"
-                  title="Location Map"
+                  title="Location Map - Melbourne VIC, Australia"
                 />
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow">
@@ -63,8 +64,8 @@ const Footer = () => {
               <div className="bg-[#061224] rounded-xl p-5 flex-1">
                 <h3 className="text-white font-bold mb-2">Office:</h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
-                  350 Fifth Avenue,<br />
-                  New York, NY 10118
+                  Melbourne VIC,<br />
+                  Australia
                 </p>
               </div>
             </div>
@@ -81,12 +82,12 @@ const Footer = () => {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 group"
               >
                 <Phone className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                <span>(541) 555-0192</span>
+                <span>(0492) 482 088</span>
               </a>
             </div>
 
             {/* Footer Links - Main Navigation */}
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6">
+            <div className="flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-x-6 md:gap-y-2 mt-6">
               <a href="/" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Home</a>
               <a href="#serveice" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Services</a>
               <a href="#PORTFOLIO" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Portfolio</a>
@@ -94,8 +95,6 @@ const Footer = () => {
               <a href="#contact" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Contact</a>
             </div>
 
-            {/* Footer Links - Legal */}
-            
           </div>
 
           {/* Right Side - Contact Form */}

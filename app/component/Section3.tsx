@@ -38,8 +38,8 @@ const WhyChooseUs = () => {
           Why Choose Us
         </h2>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+        {/* ✅ تغییر اصلی: grid-cols-2 برای موبایل (2 آیتم در هر سطر) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (

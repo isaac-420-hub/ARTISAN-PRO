@@ -71,23 +71,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-12 h-12 transform transition-transform duration-300 group-hover:scale-110">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <path
-                  d="M50 10 L90 35 L90 75 L50 95 L10 75 L10 35 Z"
-                  fill="#1e3a5f"
-                  className="transition-all duration-300 group-hover:fill-orange-500"
-                />
-                <path
-                  d="M50 25 L75 40 L75 70 L50 82 L25 70 L25 40 Z"
-                  fill="#f97316"
-                  className="transition-all duration-300"
-                />
-                <path
-                  d="M50 40 L62 48 L62 62 L50 68 L38 62 L38 48 Z"
-                  fill="#1e3a5f"
-                  className="transition-all duration-300 group-hover:fill-white"
-                />
-              </svg>
+              <img 
+                src="/Logo.png" 
+                alt="Artisan Pro Painters Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-slate-800 tracking-tight group-hover:text-orange-500 transition-colors duration-300">
@@ -160,7 +148,7 @@ const Navbar = () => {
                 <Phone className="w-4 h-4 text-slate-600 group-hover:text-orange-500 transition-colors" />
               </div>
               <span className="text-sm font-semibold text-slate-700 group-hover:text-orange-500 transition-colors">
-                +61 494 000 555
+                0492 482 088
               </span>
             </a>
 

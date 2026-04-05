@@ -7,11 +7,11 @@ const HeroSection = () => {
       {/* 1. Background Image with Zoom Animation */}
       <div className="absolute inset-0 z-0 animate-zoom-slow">
         <Image
-          src="/images/Need_the_exact_202604051152.jpg" // ✅ مسیر لوکال: عکس را در public/images/hero-bg.jpg قرار دهید
+          src="/images/Need_the_exact_202604051152.jpg"
           alt="Modern House Painting"
           fill
           priority
-          className="object-cover object-right md:object-center"
+          className="object-cover object-center md:object-right"
         />
       </div>
 

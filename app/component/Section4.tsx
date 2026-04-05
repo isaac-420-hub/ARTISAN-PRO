@@ -7,7 +7,7 @@ const BrandLogos = () => {
     { name: 'FARROW & BALL', style: 'font-serif text-xl md:text-2xl tracking-wider' },
   ];
 
-  // Duplicate for infinite scroll effect
+  // Duplicate for infinite scroll effect (desktop only)
   const allBrands = [...brands, ...brands, ...brands];
 
   return (
@@ -18,18 +18,34 @@ const BrandLogos = () => {
         </p>
       </div>
 
-      {/* Marquee Container */}
-      <div className="relative">
+      {/* ✅ GRID VIEW - Mobile Only (2x2 layout) */}
+      <div className="block md:hidden">
+        <div className="grid grid-cols-2 gap-6 px-4">
+          {brands.map((brand, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center p-4 rounded-xl bg-slate-50/50 hover:bg-slate-100/50 transition-colors duration-300"
+            >
+              <span className={`${brand.style.split(' ').filter(c => !c.startsWith('md:')).join(' ')} text-slate-400 text-center`}>
+                {brand.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ✅ MARQUEE VIEW - Desktop Only (original scroll) */}
+      <div className="hidden md:block relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white to-transparent z-10" />
 
         {/* Scrolling Brands */}
         <div className="flex animate-marquee">
           {allBrands.map((brand, index) => (
             <div
               key={index}
-              className="flex-shrink-0 mx-8 md:mx-16 lg:mx-24 flex items-center justify-center min-w-[160px] md:min-w-[200px]"
+              className="flex-shrink-0 mx-16 lg:mx-24 flex items-center justify-center min-w-[200px]"
             >
               <span className={`${brand.style} text-slate-400 hover:text-slate-600 transition-colors duration-300 cursor-default select-none`}>
                 {brand.name}
