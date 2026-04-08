@@ -1,4 +1,3 @@
-
 import { Star } from 'lucide-react';
 
 const TestimonialsSection = () => {
@@ -21,15 +20,15 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section className="w-full bg-white dark:bg-slate-900 py-16 md:py-20 lg:py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <span className="block text-sm md:text-base font-bold text-slate-400 tracking-widest uppercase mb-2 opacity-0 animate-fade-down">
+          <span className="block text-sm md:text-base font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase mb-2 opacity-0 animate-fade-down">
             TESTIMONIALS
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] opacity-0 animate-fade-down" style={{ animationDelay: '0.1s' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] dark:text-white opacity-0 animate-fade-down" style={{ animationDelay: '0.1s' }}>
             What Our Clients Say
           </h2>
         </div>
@@ -39,7 +38,7 @@ const TestimonialsSection = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-[0_30px_40px_-10px_rgba(0,0,0,0.12)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] border border-slate-100 opacity-0 animate-fade-up"
+              className="bg-white dark:bg-slate-800/50 rounded-2xl shadow-[0_30px_40px_-10px_rgba(0,0,0,0.12)] dark:shadow-[0_30px_40px_-10px_rgba(0,0,0,0.3)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] border border-slate-100 dark:border-slate-700 opacity-0 animate-fade-up"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               {/* Stars and Google Logo */}
@@ -61,20 +60,20 @@ const TestimonialsSection = () => {
               </div>
 
               {/* Review Text */}
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8">
+              <p className="text-slate-600 dark:text-slate-300 text-base md:text-lg leading-relaxed mb-8">
                 {review.text}
               </p>
 
               {/* Author Info */}
-              <div className="flex items-center gap-4 pt-6 border-t border-slate-50">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+              <div className="flex items-center gap-4 pt-6 border-t border-slate-50 dark:border-slate-700">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-700">
                   <img
                     src={review.image}
                     alt={review.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="font-bold text-[#0B1D3A] text-lg">
+                <span className="font-bold text-[#0B1D3A] dark:text-white text-lg">
                   {review.name}
                 </span>
               </div>

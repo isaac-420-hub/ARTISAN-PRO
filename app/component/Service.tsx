@@ -22,11 +22,11 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id='serveice' className="w-full bg-[#F8FAFC] py-16 md:py-20 lg:py-24">
+    <section id='serveice' className="w-full bg-[#F8FAFC] dark:bg-slate-900 py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] text-center mb-10 md:mb-12 opacity-0 animate-fade-down">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] dark:text-white text-center mb-10 md:mb-12 opacity-0 animate-fade-down">
           Services
         </h2>
 
@@ -44,8 +44,8 @@ const ServicesSection = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
 
-            {/* Dark Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/90 via-[#0B1D3A]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+            {/* Dark Overlay Gradient - Light/Dark variants */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/90 dark:from-[#0B1D3A]/95 via-[#0B1D3A]/40 dark:via-[#0B1D3A]/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-10 lg:p-12">
@@ -55,7 +55,7 @@ const ServicesSection = () => {
               </h3>
               
               {/* ✅ Button - Glassmorphism White */}
-              <span className="inline-flex items-center px-6 py-3 border-2 border-white/40 bg-white/20 backdrop-blur-md text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white/30 hover:border-white/60 hover:shadow-lg hover:shadow-white/30 hover:-translate-y-1">
+              <span className="inline-flex items-center px-6 py-3 border-2 border-white/40 dark:border-white/50 bg-white/20 dark:bg-white/25 backdrop-blur-md text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white/30 dark:hover:bg-white/35 hover:border-white/60 hover:shadow-lg hover:shadow-white/30 dark:hover:shadow-white/20 hover:-translate-y-1">
                 Learn More
                 <svg
                   className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
@@ -87,8 +87,8 @@ const ServicesSection = () => {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
-              {/* Dark Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/90 via-[#0B1D3A]/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+              {/* Dark Overlay Gradient - Light/Dark variants */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A]/90 dark:from-[#0B1D3A]/95 via-[#0B1D3A]/40 dark:via-[#0B1D3A]/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8">
@@ -97,7 +97,7 @@ const ServicesSection = () => {
                 </h3>
                 
                 {/* ✅ Button - Glassmorphism White */}
-                <span className="inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 border-2 border-white/40 bg-white/20 backdrop-blur-md text-white font-semibold rounded-lg text-sm sm:text-base transition-all duration-300 hover:bg-white/30 hover:border-white/60 hover:shadow-lg hover:shadow-white/30 hover:-translate-y-1">
+                <span className="inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 border-2 border-white/40 dark:border-white/50 bg-white/20 dark:bg-white/25 backdrop-blur-md text-white font-semibold rounded-lg text-sm sm:text-base transition-all duration-300 hover:bg-white/30 dark:hover:bg-white/35 hover:border-white/60 hover:shadow-lg hover:shadow-white/30 dark:hover:shadow-white/20 hover:-translate-y-1">
                   Learn More
                   <svg
                     className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"

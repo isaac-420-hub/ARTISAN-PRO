@@ -5,9 +5,11 @@ import BrandLogos from "./component/Section4";
 import ServicesSection from "./component/Service";
 import PortfolioSection from "./component/Service2";
 import TestimonialsSection from "./component/Section33";
+import Navbar from "./component/layout/Navbar";
 export default function Home() {
   return (
     <>
+    <Navbar />
       <HeroSection />
       <AboutSection />
       <WhyChooseUs />
