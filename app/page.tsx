@@ -8,16 +8,13 @@ import TestimonialsSection from "./component/Section33";
 export default function Home() {
   return (
     <>
-    <HeroSection/>
-    <AboutSection/>
-    <WhyChooseUs/>
-    <BrandLogos/>
-    <ServicesSection/>
-    <PortfolioSection/>
-    <TestimonialsSection/>
+      <HeroSection />
+      <AboutSection />
+      <WhyChooseUs />
+      <BrandLogos />
+      <ServicesSection />
+      <PortfolioSection />
+      <TestimonialsSection />
     </>
   );
 }
-
-
-

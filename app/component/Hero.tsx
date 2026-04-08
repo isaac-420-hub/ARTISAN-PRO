@@ -5,6 +5,10 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
+    
+
+
+
     <section className="relative w-full h-auto py-[200px] min-h-[600px] overflow-hidden bg-slate-900">
       {/* 1. Background Image with Zoom Animation */}
       <div className="absolute inset-0 z-0 animate-zoom-slow">
