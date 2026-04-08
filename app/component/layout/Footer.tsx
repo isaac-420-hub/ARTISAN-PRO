@@ -1,10 +1,12 @@
 // components/Footer.tsx
-import { MapPin, Send, Phone } from 'lucide-react';
+import { MapPin, Send, Phone, Mail } from 'lucide-react';
 
 // آیکون‌های شبکه‌های اجتماعی به صورت SVG
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
   </svg>
 );
 
@@ -70,19 +72,28 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* CTA Banner + Call Button */}
-            <div className="bg-[#061224] rounded-xl p-5 text-center space-y-4">
+            {/* CTA Banner + Call Button + Email Link - Stacked Vertically */}
+            <div className="bg-[#061224] rounded-xl p-5 text-center flex flex-col items-center gap-4">
               <p className="text-white text-lg md:text-xl font-medium tracking-wide">
                 Contact Today For a <span className="text-[#F97316] font-bold">FREE</span> Quotation!
               </p>
               
-              {/* Call Button with Phone Number */}
+              {/* Call Button with Phone Number - Color #e76f51 */}
               <a 
-                href="tel:+15415550192" 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 group"
+                href="tel:+61492482088" 
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-[#e76f51] hover:bg-[#d45a42] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#e76f51]/30 hover:-translate-y-0.5 group w-full sm:w-auto"
               >
                 <Phone className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                <span>(0492) 482 088</span>
+                <span>0492 482 088</span>
+              </a>
+
+              {/* ✅ Email Link - Native mailto (Server Component Compatible) - Stacked Below Phone */}
+              <a 
+                href="mailto:info@artisanpropainters.com.au"
+                className="flex items-center justify-center gap-2 text-slate-300 hover:text-white transition-colors duration-300 group"
+              >
+                <Mail className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+                <span className="text-sm underline decoration-slate-500 hover:decoration-white">info@artisanpropainters.com.au</span>
               </a>
             </div>
 
@@ -97,16 +108,59 @@ const Footer = () => {
 
           </div>
 
-          {/* Right Side - Contact Form */}
+          {/* Right Side - Contact Form with Labels */}
           <div className="opacity-0 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             <form className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
               <div className="space-y-4">
-                <input type="text" placeholder="Name" className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" />
-                <input type="email" placeholder="Email" className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" />
-                <input type="tel" placeholder="Phone" className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" />
-                <textarea placeholder="Message" rows={4} className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 resize-none" />
+                {/* Name Field with Label */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">Name</label>
+                  <input 
+                    id="name"
+                    type="text" 
+                    placeholder="Your full name" 
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
+                  />
+                </div>
+
+                {/* Email Field with Label */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+                  <input 
+                    id="email"
+                    type="email" 
+                    placeholder="your@email.com" 
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
+                  />
+                </div>
+
+                {/* Phone Field with Label */}
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
+                  <input 
+                    id="phone"
+                    type="tel" 
+                    placeholder="0492 482 088" 
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
+                  />
+                </div>
+
+                {/* Message Field with Label */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">Message</label>
+                  <textarea 
+                    id="message"
+                    placeholder="Tell us about your project..." 
+                    rows={4} 
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 resize-none" 
+                  />
+                </div>
                 
-                <button type="submit" className="w-full py-4 bg-[#F97316] hover:bg-[#EA580C] text-white font-bold text-lg rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 group">
+                {/* Submit Button - Color #e76f51 */}
+                <button 
+                  type="submit" 
+                  className="w-full py-4 bg-[#e76f51] hover:bg-[#d45a42] text-white font-bold text-lg rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#e76f51]/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+                >
                   <span>Send Message</span>
                   <Send className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </button>

@@ -1,5 +1,15 @@
 // components/HeroSection.tsx
+'use client';
+
 import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
+
+// Load Playfair Display font from Google Fonts via next/font
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 const HeroSection = () => {
   return (
@@ -21,8 +31,8 @@ const HeroSection = () => {
       {/* 3. Content Container */}
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-12 h-full flex items-center">
         <div className="max-w-3xl pt-20 md:pt-0">
-          {/* Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight animate-fade-up">
+          {/* Headline - Playfair Display Font Applied Here */}
+          <h1 className={`${playfair.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight animate-fade-up`}>
             <span className="whitespace-nowrap">Transform Your Space with</span>{" "}
             <br className="hidden md:block" />
             Melbourne's Expert Painters
@@ -37,18 +47,18 @@ const HeroSection = () => {
 
           {/* Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up-delay-2">
-            {/* Primary Button (Orange) */}
+            {/* Primary Button (Orange #e76f51) */}
             <a
-              href="/contact"
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-lg text-center transition-all duration-300 shadow-lg hover:shadow-orange-500/30 hover:-translate-y-1"
+              href="#contact"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-[#e76f51] hover:bg-[#d45a42] text-white font-bold rounded-lg text-center transition-all duration-300 shadow-lg hover:shadow-[#e76f51]/30 hover:-translate-y-1"
             >
               Get a Free Quote
             </a>
 
-            {/* Secondary Button (Outline White) */}
+            {/* Secondary Button - Glassmorphism Navy Blue "Call Us" */}
             <a
-              href="tel:+61494000555"
-              className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white font-bold rounded-lg text-center hover:bg-white hover:text-[#0B1D3A] transition-all duration-300 hover:-translate-y-1"
+              href="tel:+61492482088"
+              className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 bg-[#0B1D3A]/40 backdrop-blur-md text-white font-bold rounded-lg text-center transition-all duration-300 hover:bg-[#0B1D3A]/60 hover:border-white/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0B1D3A]/40"
             >
               Call Us
             </a>

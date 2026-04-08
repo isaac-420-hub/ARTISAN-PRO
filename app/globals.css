@@ -2,6 +2,15 @@
 html {
   scroll-behavior: smooth;
 }
+::selection {
+  background-color: #cc5500;
+  color: white ;
+}
+
+::-moz-selection {
+  background-color: #cc5500;
+  color: white;
+}
 
 @keyframes zoom-slow {
   from {

@@ -1,22 +1,31 @@
 // components/AboutContent.tsx
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { Playfair_Display } from "next/font/google";
+
+// Load Playfair Display font (works in Server Components)
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 const AboutContent = () => {
   return (
-    <div  className="container mx-auto px-4 sm:px-6 lg:px-12">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
         {/* Left Side - Text Content */}
         <div className="order-2 lg:order-1">
           <h3
-            className="text-sm font-bold text-[#F97316] tracking-widest uppercase mb-3 animate-slide-right"
+            className="text-sm font-bold text-black tracking-widest uppercase mb-3 animate-slide-right"
             style={{ animationDelay: "0.5s" }}
           >
             ABOUT US
           </h3>
 
+          {/* Heading with Playfair Display Font - Server Component Compatible */}
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] leading-tight mb-6 animate-slide-right"
+            className={`${playfair.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] leading-tight mb-6 animate-slide-right`}
             style={{ animationDelay: "0.6s" }}
           >
             Creating Beautiful Spaces, <br className="hidden sm:block" />
@@ -39,7 +48,7 @@ const AboutContent = () => {
               className="flex items-center gap-4 group animate-slide-right"
               style={{ animationDelay: "0.8s" }}
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#F97316] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#EA580C] transition-all duration-300 shadow-md group-hover:shadow-orange-500/40">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center group-hover:scale-110 group-hover:bg-black transition-all duration-300 shadow-md group-hover:shadow-gray-500/40">
                 <Check className="w-4 h-4 text-white" />
               </div>
               <span className="text-base md:text-lg text-slate-700 font-semibold group-hover:text-[#0B1D3A] transition-colors duration-300">
@@ -51,7 +60,7 @@ const AboutContent = () => {
               className="flex items-center gap-4 group animate-slide-right"
               style={{ animationDelay: "0.9s" }}
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#F97316] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#EA580C] transition-all duration-300 shadow-md group-hover:shadow-orange-500/40">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center group-hover:scale-110 group-hover:bg-black transition-all duration-300 shadow-md group-hover:shadow-gray-500/40">
                 <Check className="w-4 h-4 text-white" />
               </div>
               <span className="text-base md:text-lg text-slate-700 font-semibold group-hover:text-[#0B1D3A] transition-colors duration-300">
@@ -63,7 +72,7 @@ const AboutContent = () => {
               className="flex items-center gap-4 group animate-slide-right"
               style={{ animationDelay: "1.0s" }}
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#F97316] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#EA580C] transition-all duration-300 shadow-md group-hover:shadow-orange-500/40">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center group-hover:scale-110 group-hover:bg-black transition-all duration-300 shadow-md group-hover:shadow-gray-500/40">
                 <Check className="w-4 h-4 text-white" />
               </div>
               <span className="text-base md:text-lg text-slate-700 font-semibold group-hover:text-[#0B1D3A] transition-colors duration-300">
@@ -75,7 +84,7 @@ const AboutContent = () => {
               className="flex items-center gap-4 group animate-slide-right"
               style={{ animationDelay: "1.1s" }}
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#F97316] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#EA580C] transition-all duration-300 shadow-md group-hover:shadow-orange-500/40">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center group-hover:scale-110 group-hover:bg-black transition-all duration-300 shadow-md group-hover:shadow-gray-500/40">
                 <Check className="w-4 h-4 text-white" />
               </div>
               <span className="text-base md:text-lg text-slate-700 font-semibold group-hover:text-[#0B1D3A] transition-colors duration-300">
@@ -92,7 +101,7 @@ const AboutContent = () => {
         >
           <div className="relative w-full aspect-[3/4] md:aspect-[3/3] rounded-3xl overflow-hidden shadow-2xl group">
             <Image
-              src="/images/Mockup Logo 1.jpg" // ✅ مسیر لوکال: عکس را در public/images/about-image.jpg قرار دهید
+              src="/images/Mockup Logo 1.jpg"
               alt="Professional Painter at Work"
               fill
               className="object-cover object-top transition-transform duration-700 group-hover:scale-110"

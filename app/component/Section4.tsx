@@ -26,7 +26,7 @@ const BrandLogos = () => {
               key={index}
               className="flex items-center justify-center p-4 rounded-xl bg-slate-50/50 hover:bg-slate-100/50 transition-colors duration-300"
             >
-              <span className={`${brand.style.split(' ').filter(c => !c.startsWith('md:')).join(' ')} text-slate-400 text-center`}>
+              <span className={`${brand.style.split(' ').filter(c => !c.startsWith('md:')).join(' ')} text-slate-400 text-center filter grayscale opacity-60`}>
                 {brand.name}
               </span>
             </div>
@@ -47,7 +47,7 @@ const BrandLogos = () => {
               key={index}
               className="flex-shrink-0 mx-16 lg:mx-24 flex items-center justify-center min-w-[200px]"
             >
-              <span className={`${brand.style} text-slate-400 hover:text-slate-600 transition-colors duration-300 cursor-default select-none`}>
+              <span className={`${brand.style} text-slate-400 hover:text-slate-600 transition-colors duration-300 cursor-default select-none filter grayscale opacity-60`}>
                 {brand.name}
               </span>
             </div>

@@ -6,23 +6,23 @@ const ServicesSection = () => {
   const services = [
     {
       title: 'Residential Painting',
-      image: '/images/Need_the_exact_202604051153.jpg', // ✅ لوکال
+      image: '/images/Need_the_exact_202604051153.jpg',
       href: '/',
     },
     {
       title: 'Commercial Painting',
-      image: '/images/Image_in_background_202604051157.jpeg', // ✅ لوکال
+      image: '/images/Image_in_background_202604051157.jpeg',
       href: '/',
     },
     {
       title: 'Industrial Painting',
-      image: '/images/Image_in_background_202604051158.jpeg', // ✅ لوکال
+      image: '/images/Image_in_background_202604051158.jpeg',
       href: '/',
     },
   ];
 
   return (
-    <section id='serveice' className="w-full  bg-[#F8FAFC] py-16 md:py-20 lg:py-24">
+    <section id='serveice' className="w-full bg-[#F8FAFC] py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Title */}
@@ -30,16 +30,16 @@ const ServicesSection = () => {
           Services
         </h2>
 
-        {/* Top Large Card */}
+        {/* Top Large Card - Renamed to avoid duplication */}
         <div className="mb-6 md:mb-8 opacity-0 animate-fade-up" style={{ animationDelay: '0.1s' }}>
           <Link
-            href="/services/residential"
+            href="/services/premium"
             className="group relative w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden block"
           >
             {/* Background Image */}
             <Image
-              src="/images/Need_the_exact_202604051153.jpg" // ✅ لوکال
-              alt="Residential Painting"
+              src="/images/Need_the_exact_202604051153.jpg"
+              alt="Our Premium Finishes"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -49,10 +49,13 @@ const ServicesSection = () => {
 
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-10 lg:p-12">
+              {/* ✅ Title Changed to "Our Premium Finishes" */}
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-5 transform transition-transform duration-500 group-hover:-translate-y-2">
-                Residential Painting
+                Our Premium Finishes
               </h3>
-              <span className="inline-flex items-center px-6 py-3 bg-[#F97316] text-white font-semibold rounded-lg transition-all duration-300 group-hover:bg-[#EA580C] group-hover:shadow-lg group-hover:shadow-orange-500/30 group-hover:-translate-y-1">
+              
+              {/* ✅ Button - Glassmorphism White */}
+              <span className="inline-flex items-center px-6 py-3 border-2 border-white/40 bg-white/20 backdrop-blur-md text-white font-semibold rounded-lg transition-all duration-300 hover:bg-white/30 hover:border-white/60 hover:shadow-lg hover:shadow-white/30 hover:-translate-y-1">
                 Learn More
                 <svg
                   className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
@@ -92,7 +95,9 @@ const ServicesSection = () => {
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 transform transition-transform duration-500 group-hover:-translate-y-2">
                   {service.title}
                 </h3>
-                <span className="inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 bg-[#F97316] text-white font-semibold rounded-lg text-sm sm:text-base transition-all duration-300 group-hover:bg-[#EA580C] group-hover:shadow-lg group-hover:shadow-orange-500/30 group-hover:-translate-y-1">
+                
+                {/* ✅ Button - Glassmorphism White */}
+                <span className="inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 border-2 border-white/40 bg-white/20 backdrop-blur-md text-white font-semibold rounded-lg text-sm sm:text-base transition-all duration-300 hover:bg-white/30 hover:border-white/60 hover:shadow-lg hover:shadow-white/30 hover:-translate-y-1">
                   Learn More
                   <svg
                     className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"

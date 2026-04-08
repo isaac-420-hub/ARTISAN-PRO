@@ -38,29 +38,29 @@ const WhyChooseUs = () => {
           Why Choose Us
         </h2>
 
-        {/* ✅ تغییر اصلی: grid-cols-2 برای موبایل (2 آیتم در هر سطر) */}
+        {/* Features Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
               <div
                 key={index}
-                className="group flex flex-col items-center text-center p-6 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:scale-105 cursor-default animate-fade-up"
+                className="group flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/30 animate-fade-up cursor-default"
                 style={{ animationDelay: feature.delay }}
               >
-                {/* Icon Container */}
-                <div className="relative mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                  <div className="absolute inset-0 bg-white/10 rounded-full blur-xl group-hover:bg-orange-500/20 group-hover:blur-2xl transition-all duration-500" />
-                  <IconComponent className="relative w-16 h-16 md:w-20 md:h-20 text-white group-hover:text-orange-400 transition-all duration-500 group-hover:-translate-y-1" strokeWidth={1.5} />
+                {/* Icon Container - No color change on hover */}
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-white/10 rounded-full blur-xl" />
+                  <IconComponent className="relative w-16 h-16 md:w-20 md:h-20 text-white" strokeWidth={1.5} />
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                {/* Title - No color change on hover */}
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-base md:text-lg text-slate-300 group-hover:text-white transition-colors duration-300">
+                {/* Description - No color change on hover */}
+                <p className="text-base md:text-lg text-slate-300">
                   {feature.description}
                 </p>
               </div>
