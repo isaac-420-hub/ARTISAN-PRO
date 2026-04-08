@@ -1,14 +1,6 @@
 // components/AboutContent.tsx
 import Image from "next/image";
 import { Check } from "lucide-react";
-import { Playfair_Display } from "next/font/google";
-
-// Load Playfair Display font (works in Server Components)
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
 
 const AboutContent = () => {
   return (
@@ -23,9 +15,9 @@ const AboutContent = () => {
             ABOUT US
           </h3>
 
-          {/* Heading with Playfair Display Font - Server Component Compatible */}
+          {/* Heading - Default Font (Same as other texts) */}
           <h2
-            className={`${playfair.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] leading-tight mb-6 animate-slide-right`}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B1D3A] leading-tight mb-6 animate-slide-right"
             style={{ animationDelay: "0.6s" }}
           >
             Creating Beautiful Spaces, <br className="hidden sm:block" />

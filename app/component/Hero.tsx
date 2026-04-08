@@ -2,14 +2,6 @@
 'use client';
 
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
-
-// Load Playfair Display font from Google Fonts via next/font
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
 
 const HeroSection = () => {
   return (
@@ -31,8 +23,8 @@ const HeroSection = () => {
       {/* 3. Content Container */}
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-12 h-full flex items-center">
         <div className="max-w-3xl pt-20 md:pt-0">
-          {/* Headline - Playfair Display Font Applied Here */}
-          <h1 className={`${playfair.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight animate-fade-up`}>
+          {/* Headline - Default Font (Same as other texts) */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight tracking-tight animate-fade-up">
             <span className="whitespace-nowrap">Transform Your Space with</span>{" "}
             <br className="hidden md:block" />
             Melbourne's Expert Painters

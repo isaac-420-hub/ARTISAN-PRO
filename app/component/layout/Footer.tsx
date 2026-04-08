@@ -98,7 +98,7 @@ const Footer = () => {
             </div>
 
             {/* Footer Links - Main Navigation */}
-            <div className="flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-x-6 md:gap-y-2 mt-6">
+            <div className="flex flex-col items-center gap-5 lg:gap-28 md:flex-row md:justify-left md:gap-x-6 md:gap-y-2 mt-6 ">
               <a href="/" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Home</a>
               <a href="#serveice" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Services</a>
               <a href="#PORTFOLIO" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Portfolio</a>
@@ -140,7 +140,7 @@ const Footer = () => {
                   <input 
                     id="phone"
                     type="tel" 
-                    placeholder="0492 482 088" 
+                    placeholder="1234 567 890" 
                     className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
                   />
                 </div>
