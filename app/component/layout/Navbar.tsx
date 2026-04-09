@@ -36,6 +36,11 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // ✅ تابع کمکی برای بستن منوی موبایل
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '#serveice' },
@@ -154,13 +159,13 @@ const Navbar = () => {
 
               {/* Mobile: ThemeToggle + Menu Button */}
               <div className="flex lg:hidden items-center space-x-2">
-                {/* ✅ ThemeToggle for Mobile */}
                 <ThemeToggle />
                 
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                  aria-label="Toggle menu"
                 >
                   {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
@@ -181,6 +186,7 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={handleMobileLinkClick} // ✅ اضافه شد: بستن منو با کلیک
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
                       active 
                         ? 'bg-[#e76f51]/10 dark:bg-[#e76f51]/20 text-[#e76f51] border-l-4 border-[#e76f51]' 
@@ -194,15 +200,27 @@ const Navbar = () => {
               })}
               
               <div className="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4">
-                <a href="tel:+61492482088" className="flex items-center justify-center space-x-2 px-4 py-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+                <a 
+                  href="tel:+61492482088" 
+                  onClick={handleMobileLinkClick} // ✅ برای لینک تلفن هم اضافه شد
+                  className="flex items-center justify-center space-x-2 px-4 py-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                >
                   <Phone className="w-5 h-5" />
                   <span>0492 482 088</span>
                 </a>
-                <a href="mailto:info@artisanpropainters.com.au" className="flex items-center justify-center space-x-2 px-4 py-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+                <a 
+                  href="mailto:info@artisanpropainters.com.au" 
+                  onClick={handleMobileLinkClick} // ✅ برای لینک ایمیل هم اضافه شد
+                  className="flex items-center justify-center space-x-2 px-4 py-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                >
                   <Mail className="w-5 h-5" />
                   <span>info@artisanpropainters.com.au</span>
                 </a>
-                <Link href="#contact" className="block w-full text-center px-6 py-3 bg-[#e76f51] text-white font-semibold rounded-lg hover:bg-[#d45a42] transition-colors">
+                <Link 
+                  href="#contact" 
+                  onClick={handleMobileLinkClick} // ✅ برای دکمه CTA هم اضافه شد
+                  className="block w-full text-center px-6 py-3 bg-[#e76f51] text-white font-semibold rounded-lg hover:bg-[#d45a42] transition-colors"
+                >
                   Get a Free Quote
                 </Link>
               </div>
@@ -212,7 +230,7 @@ const Navbar = () => {
       </div>
 
       {/* Spacer */}
-      <div className="h-[112px]" />
+      <div className="h-[112px]" /> 
 
       <style jsx>{`
         @keyframes slideIn {

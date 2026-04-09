@@ -8,6 +8,8 @@ html {
   scroll-behavior: smooth;
 } 
 
+
+
 ::selection {
   background-color: #cc5500;
   color: white ;
@@ -323,3 +325,27 @@ html {
     /* font-sans حذف شد تا فونت پیش‌فرض برگردد */
   }
 }
+
+
+
+/* HeroSection.module.css */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.headline {
+  composes: animate-fade-up from global;
+}
+
+.headlineHover:hover {
+  background-image: linear-gradient(90deg, #e76f51, #f4a261, #e76f51, #f4a261, #e76f51);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+  cursor: default;
+}
+
