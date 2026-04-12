@@ -89,7 +89,7 @@ const Navbar = () => {
               <a href="mailto:info@artisanpropainters.com.au" className="flex items-center space-x-1.5 group">
                 <Mail className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
                 <span className="text-xs font-medium text-slate-300 group-hover:text-white transition-colors hidden md:inline">
-                  info@artisanpropainters.com.au
+                  sayed@artisanpropainters.com.au
                 </span>
                 <span className="text-xs font-medium text-slate-300 group-hover:text-white transition-colors md:hidden">
                   Email

@@ -4,11 +4,8 @@ const BrandLogos = () => {
     { name: 'Dulux', style: 'font-bold italic text-3xl md:text-4xl' },
     { name: 'Porters Paints', style: 'font-medium text-xl md:text-2xl' },
     { name: 'TAUBMANS', style: 'font-bold text-2xl md:text-3xl tracking-wide' },
-    { name: 'FARROW & BALL', style: 'font-serif text-xl md:text-2xl tracking-wider' },
+    { name: 'Haymes Paint', style: 'font-serif text-xl md:text-2xl tracking-wider' },
   ];
-
-  // Duplicate for infinite scroll effect (desktop only)
-  const allBrands = [...brands, ...brands, ...brands];
 
   return (
     <section className="w-full bg-white dark:bg-slate-900 py-12 md:py-16 overflow-hidden">
@@ -34,20 +31,20 @@ const BrandLogos = () => {
         </div>
       </div>
 
-      {/* ✅ MARQUEE VIEW - Desktop Only (original scroll) */}
+      {/* ✅ CENTERED ROW VIEW - Desktop Only (4 brands, centered, no loop) */}
       <div className="hidden md:block relative">
         {/* Fade edges - Light/Dark variants */}
-        <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling Brands */}
-        <div className="flex animate-marquee">
-          {allBrands.map((brand, index) => (
+        {/* Centered Brands Row */}
+        <div className="flex justify-center items-center gap-16 lg:gap-24 px-20">
+          {brands.map((brand, index) => (
             <div
               key={index}
-              className="flex-shrink-0 mx-16 lg:mx-24 flex items-center justify-center min-w-[200px]"
+              className="flex items-center justify-center min-w-[180px] lg:min-w-[220px]"
             >
-              <span className={`${brand.style} text-slate-400 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200 transition-colors duration-300 cursor-default select-none filter grayscale opacity-60 dark:opacity-75`}>
+              <span className={`${brand.style} text-slate-400 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-200 transition-colors duration-300 cursor-default select-none filter grayscale opacity-60 dark:opacity-75 hover:grayscale-0 hover:opacity-100`}>
                 {brand.name}
               </span>
             </div>

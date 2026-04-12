@@ -1,7 +1,11 @@
 // components/Footer.tsx
-import { MapPin, Send, Phone, Mail } from 'lucide-react';
+'use client'; // ⚠️ حتماً این خط را اضافه کنید (برای استفاده از useState و useEffect)
 
-// آیکون‌های شبکه‌های اجتماعی به صورت SVG
+import { useState, FormEvent } from 'react';
+import { MapPin, Send, Phone, Mail } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
+// آیکون‌های شبکه‌های اجتماعی (بدون تغییر)
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -27,6 +31,74 @@ const LinkedinIcon = () => (
 );
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+    setStatusMessage('');
+
+    // 🔑 کلیدهای EmailJS خود را از .env.local بخوانید
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceID || !templateID || !publicKey) {
+      setStatus('error');
+      setStatusMessage('⚠️ تنظیمات EmailJS کامل نیست. لطفاً فایل .env.local را بررسی کنید.');
+      return;
+    }
+
+    try {
+      // 📤 ارسال داده‌ها به EmailJS
+      const result = await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          to_email: 'info@artisanpropainters.com.au' // ایمیل مقصد (اختیاری - در تمپلیت هم قابل تنظیم است)
+        },
+        publicKey
+      );
+
+      if (result.status === 200) {
+        setStatus('success');
+        setStatusMessage('✅ پیام شما با موفقیت ارسال شد!');
+        setFormData({ name: '', email: '', phone: '', message: '' }); // ریست فرم
+        
+        // پاک کردن پیام موفقیت بعد از 5 ثانیه
+        setTimeout(() => {
+          setStatus('idle');
+          setStatusMessage('');
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+      setStatusMessage('❌ خطا در ارسال پیام. لطفاً دوباره تلاش کنید.');
+      
+      setTimeout(() => {
+        setStatus('idle');
+        setStatusMessage('');
+      }, 5000);
+    }
+  };
+
   return (
     <footer id='contact' className="w-full bg-[#0B1D3A] pt-16 md:pt-20 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
@@ -72,13 +144,12 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* CTA Banner + Call Button + Email Link - Stacked Vertically */}
+            {/* CTA Banner + Call Button + Email Link */}
             <div className="bg-[#061224] rounded-xl p-5 text-center flex flex-col items-center gap-4">
               <p className="text-white text-lg md:text-xl font-medium tracking-wide">
                 Contact Today For a <span className="text-[#F97316] font-bold">FREE</span> Quotation!
               </p>
               
-              {/* Call Button with Phone Number - Color #e76f51 */}
               <a 
                 href="tel:+61492482088" 
                 className="flex items-center justify-center gap-2 px-6 py-3 bg-[#e76f51] hover:bg-[#d45a42] text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#e76f51]/30 hover:-translate-y-0.5 group w-full sm:w-auto"
@@ -87,17 +158,16 @@ const Footer = () => {
                 <span>0492 482 088</span>
               </a>
 
-              {/* ✅ Email Link - Native mailto (Server Component Compatible) - Stacked Below Phone */}
               <a 
                 href="mailto:info@artisanpropainters.com.au"
                 className="flex items-center justify-center gap-2 text-slate-300 hover:text-white transition-colors duration-300 group"
               >
                 <Mail className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-                <span className="text-sm underline decoration-slate-500 hover:decoration-white">info@artisanpropainters.com.au</span>
+                <span className="text-sm underline decoration-slate-500 hover:decoration-white">sayed@artisanpropainters.com.au</span>
               </a>
             </div>
 
-            {/* Footer Links - Main Navigation */}
+            {/* Footer Links */}
             <div className="flex flex-col items-center gap-5 lg:gap-28 md:flex-row md:justify-left md:gap-x-6 md:gap-y-2 mt-6 ">
               <a href="/" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Home</a>
               <a href="#serveice" className="text-slate-400 hover:text-[#F97316] text-sm transition-colors duration-300">Services</a>
@@ -108,61 +178,96 @@ const Footer = () => {
 
           </div>
 
-          {/* Right Side - Contact Form with Labels */}
+          {/* Right Side - Contact Form with EmailJS */}
           <div className="opacity-0 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            <form className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
               <div className="space-y-4">
-                {/* Name Field with Label */}
+                {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">Name</label>
                   <input 
                     id="name"
                     type="text" 
                     placeholder="Your full name" 
-                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    disabled={status === 'sending'}
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 disabled:opacity-50" 
                   />
                 </div>
 
-                {/* Email Field with Label */}
+                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
                   <input 
                     id="email"
                     type="email" 
                     placeholder="your@email.com" 
-                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    disabled={status === 'sending'}
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 disabled:opacity-50" 
                   />
                 </div>
 
-                {/* Phone Field with Label */}
+                {/* Phone Field */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">Phone</label>
                   <input 
                     id="phone"
                     type="tel" 
                     placeholder="1234 567 890" 
-                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300" 
+                    value={formData.phone}
+                    onChange={handleChange}
+                    disabled={status === 'sending'}
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 disabled:opacity-50" 
                   />
                 </div>
 
-                {/* Message Field with Label */}
+                {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">Message</label>
                   <textarea 
                     id="message"
                     placeholder="Tell us about your project..." 
                     rows={4} 
-                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 resize-none" 
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    disabled={status === 'sending'}
+                    className="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-200 rounded-xl text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#F97316] focus:bg-white transition-all duration-300 resize-none disabled:opacity-50" 
                   />
                 </div>
                 
-                {/* Submit Button - Color #e76f51 */}
+                {/* Status Message */}
+                {statusMessage && (
+                  <div className={`text-sm font-medium p-3 rounded-lg ${
+                    status === 'success' ? 'bg-green-100 text-green-700' : 
+                    status === 'error' ? 'bg-red-100 text-red-700' : 
+                    'bg-blue-100 text-blue-700'
+                  }`}>
+                    {statusMessage}
+                  </div>
+                )}
+                
+                {/* Submit Button */}
                 <button 
                   type="submit" 
-                  className="w-full py-4 bg-[#e76f51] hover:bg-[#d45a42] text-white font-bold text-lg rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#e76f51]/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+                  disabled={status === 'sending'}
+                  className="w-full py-4 bg-[#e76f51] hover:bg-[#d45a42] disabled:bg-[#e76f51]/60 disabled:cursor-not-allowed text-white font-bold text-lg rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#e76f51]/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
                 >
-                  <span>Send Message</span>
-                  <Send className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  {status === 'sending' ? (
+                    <>
+                      <span className="animate-pulse">Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </>
+                  )}
                 </button>
               </div>
             </form>
@@ -172,7 +277,7 @@ const Footer = () => {
         {/* Divider Line */}
         <div className="border-t border-slate-700/50 mb-8" />
 
-        {/* Bottom Bar - Social Icons & Copyright */}
+        {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <a href="#" className="w-10 h-10 rounded-full bg-slate-700 hover:bg-[#F97316] flex items-center justify-center transition-all duration-300 hover:scale-110 group">
