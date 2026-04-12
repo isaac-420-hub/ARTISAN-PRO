@@ -92,7 +92,7 @@ const Navbar = () => {
                   sayed@artisanpropainters.com.au
                 </span>
                 <span className="text-xs font-medium text-slate-300 group-hover:text-white transition-colors md:hidden">
-                  Email
+                   Send Email
                 </span>
               </a>
             </div>
@@ -209,12 +209,12 @@ const Navbar = () => {
                   <span>0492 482 088</span>
                 </a>
                 <a 
-                  href="mailto:info@artisanpropainters.com.au" 
+                  href="mailto:sayed@artisanpropainters.com.au" 
                   onClick={handleMobileLinkClick} // ✅ برای لینک ایمیل هم اضافه شد
                   className="flex items-center justify-center space-x-2 px-4 py-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
-                  <span>info@artisanpropainters.com.au</span>
+                  <span>sayed@artisanpropainters.com.au</span>
                 </a>
                 <Link 
                   href="#contact" 
